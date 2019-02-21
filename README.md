@@ -17,7 +17,7 @@ php composer.phar update
 
 ## Quick Started
 
-### Simple example
+ Simple example
 ```php
 use gone\applications\Application;
 use gone\routes\Router;
@@ -37,7 +37,7 @@ $app->run();
 ```
 
 ### You can load all routers from directory
-First create your folder and file, for example `routers\main.php` and
+First create your folder and file, for example as `routers\main.php` and
 write here
 
 `routers\main.php`
@@ -48,8 +48,8 @@ $router->route('GET', '/about', function($request){
 });
 ```
 
-And add the router to use
-`index.php`
+And add the routers folder to `Application` via `Router`
+
 ```php
 ...
 $app->use(new Router('routers'));
@@ -58,24 +58,45 @@ $app->use(new Router('routers'));
 
 ### Routing
 
-Routing in request
+Router methods
+
 ```php
-$router->get('/profile/:name', function($request){
-    return array(
-        'code' => 0,
-        'user_name' => $request->name
-    )
-});
+$router->route($method, $url, $callback);
+$router->get($url, $callback);
+$router->post($url, $callback);
+$router->put($url, $callback);
+$router->delete($url, $callback);
 ```
 
-Routing in request arguments
 ```php
-// in this example, for /profile/path/to/args url
-// $request->args will be ["path", "to", "args"]
-$router->get('/profile/*', function($request){
+// get url params in request
+$router->get('/account/:name', function($request){
+    return array(
+        'code' => 0,
+        'username' => $request->name
+    )
+});
+
+// in this example, for /root/path/to/file url
+// $request->args will be ["path", "to", "file"]
+$router->get('/root/*', function($request){
     return array(
         'code' => 0,
         'args' => $request->args
     );
+});
+
+$router->get('/profile/:name/files/*', function(){
+    return array(
+        'code' => 0,
+        'username' => $request->name,
+        'path_as_array' => $request->args
+    );
+});
+
+$router->get('/about', function(){
+    // in callback, $this is available
+    // and instance of \gone\routes\Callback
+    $this->response->redirect('/path/to/redirect');
 });
 ```
