@@ -37,12 +37,12 @@ $app->run();
 ```
 
 ### You can load all routers from directory
-First create your folder and file to use, for example `routers\main.php` and
+First create your folder and file, for example `routers\main.php` and
 write here
 
 `routers\main.php`
 ```php
-# in here $router value is available
+# $router is available here
 $router->route('GET', '/about', function($request){
     ...
 });
@@ -52,7 +52,9 @@ And add the router to use
 `index.php`
 ```php
 ...
+
 $app->use(new Router('routers'))
+
 ...
 ```
 
