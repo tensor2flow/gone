@@ -1,10 +1,10 @@
 {
-    "name": "gone/framework",
+    "name": "gone/gone",
     "type": "library",
     "description": "The Gone REST-API framework, written in PHP",
     "license": "MIT",
     "keywords" : [
-        "framework", "route", "rest-api", "rest", "api", "php", "web service"
+        "framework", "route", "rest-api", "rest", "api", "php", "web service", "json"
     ],
     "authors": [
         {
