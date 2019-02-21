@@ -52,9 +52,7 @@ And add the router to use
 `index.php`
 ```php
 ...
-
 $app->use(new Router('routers'));
-
 ...
 ```
 
