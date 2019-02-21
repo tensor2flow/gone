@@ -73,7 +73,7 @@ $router->get('/profile/:name', function($request){
 Routing in request arguments
 ```php
 // in this example, for /profile/path/to/args url
-// $request->args will be ["path", "to", "args"];
+// $request->args will be ["path", "to", "args"]
 $router->get('/profile/*', function($request){
     return array(
         'code' => 0,
