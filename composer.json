@@ -1,0 +1,24 @@
+{
+    "name": "gone/framework",
+    "type": "library",
+    "description": "The Gone REST-API framework, written in PHP",
+    "license": "MIT",
+    "keywords" : [
+        "framework", "route", "rest-api", "rest", "api", "php", "web service"
+    ],
+    "authors": [
+        {
+            "name": "Firdavs Beknazarov",
+            "email": "tensor2flow@gmail.com",
+            "homepage": "https://app.codesignal.com/profile/tensorflows"
+        }
+    ],
+    "autoload" : {
+        "psr-4" : {
+            "gone\\" : "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.5"
+    }
+}
