@@ -3,7 +3,6 @@
 namespace gone\applications;
 
 use gone\Gone;
-use gone\collections\Listed;
 
 class Callback{
     public $app;
@@ -86,7 +85,7 @@ class BaseApplication extends \stdClass{
 
     public function runCallback($request, $arguments, $callback){
         $this->request = Gone::$request;
-        $this->request->args = new Listed($arguments);
+        $this->request->args = $arguments;
 
         foreach($request as $key => $value){
             $this->request->__set($key, $value);
